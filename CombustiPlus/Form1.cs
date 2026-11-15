@@ -83,7 +83,7 @@ namespace CombustiPlus
                 lstDetalle.Items.Add($"Tarjeta+3%: RD$ {total:N2}");
             }
 
-            lstDetalle.Items.Add($"TOTAL: RD$ {total:N2}");
+            lstDetalle.Items.Add($"{galones:0.0} gal × RD$ {precio:N2} = RD$ {total:N2}");
             return total;
         }
 
@@ -100,7 +100,7 @@ namespace CombustiPlus
                 if (d.Total > mayor.Total) mayor = d;
             }
 
-            lblResumen.Text = $"{despachos.Count} despachos - Vendido RD$ {vendido:N2} - Galones {galones:0.0} - Mayor: #{mayor.Numero:00} {mayor.Placa} (RD$ {mayor.Total:N2})";
+            lblResumen.Text = $"{despachos.Count} despachos · Vendido RD$ {vendido:N2} · Galones {galones:0.0} · Mayor: #{mayor.Numero:00} {mayor.Placa} (RD$ {mayor.Total:N2})";
         }
 
         public List<Despacho> despachos = new List<Despacho>();
@@ -144,10 +144,10 @@ namespace CombustiPlus
 
             string linea = "";
             foreach (var par in galonesPorCombustible)
-                linea += $"{par.Key} {par.Value:0.0} - ";
+                linea += $"{par.Key} {par.Value:0.0} · ";
 
             lstDetalle.Items.Clear();
-            lstDetalle.Items.Add(linea.TrimEnd(' ', '-'));
+            lstDetalle.Items.Add(linea.TrimEnd(' ', '·'));
         }
     }
 }
