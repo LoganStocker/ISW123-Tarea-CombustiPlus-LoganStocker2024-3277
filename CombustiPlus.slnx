@@ -1,3 +1,6 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="Despacho.cs" />
+  </Folder>
   <Project Path="CombustiPlus/CombustiPlus.csproj" />
 </Solution>
