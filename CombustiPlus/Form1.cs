@@ -116,19 +116,38 @@ namespace CombustiPlus
         {
             if (!DatosValidos()) return;
 
-            Despacho d = new Despacho();
-            d.Numero = despachos.Count + 1;
-            d.Placa = txtPlaca.Text;
-            d.Combustible = cmbCombustible.Text;
-            d.Galones = nudGalones.Value;
-            d.Pago = cmbPago.Text;
-            d.Total = CalcularTotal();
-            despachos.Add(d);
+            Despacho des = new Despacho();
+            des.Numero = despachos.Count + 1;
+            des.Placa = txtPlaca.Text;
+            des.Combustible = cmbCombustible.Text;
+            des.Galones = nudGalones.Value;
+            des.Pago = cmbPago.Text;
+            des.Total = CalcularTotal();
+            despachos.Add(des);
 
-            lstDespachos.Items.Add(d);
+            lstDespachos.Items.Add(des);
             ActualizarResumen();
 
         }
-        
+
+        private void btnPorCombustible_Click(object sender, EventArgs e)
+        {
+            Dictionary<string, decimal> galonesPorCombustible = new Dictionary<string, decimal>();
+
+            foreach (Despacho des in despachos)
+            {
+                if (galonesPorCombustible.ContainsKey(des.Combustible))
+                    galonesPorCombustible[des.Combustible] += des.Galones;
+                else
+                    galonesPorCombustible[des.Combustible] = des.Galones;
+            }
+
+            string linea = "";
+            foreach (var par in galonesPorCombustible)
+                linea += $"{par.Key} {par.Value:0.0} - ";
+
+            lstDetalle.Items.Clear();
+            lstDetalle.Items.Add(linea.TrimEnd(' ', '-'));
+        }
     }
 }

@@ -154,6 +154,7 @@
             btnPorCombustible.TabIndex = 7;
             btnPorCombustible.Text = "Galones por combustible";
             btnPorCombustible.UseVisualStyleBackColor = true;
+            btnPorCombustible.Click += btnPorCombustible_Click;
             // 
             // lblResumen
             // 
