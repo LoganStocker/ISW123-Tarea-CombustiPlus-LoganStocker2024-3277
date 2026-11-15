@@ -13,4 +13,5 @@ public class Despacho
     {
         return $"#{Numero:00} {Placa}  {Combustible}  {Galones:0.0} gal  {Pago}  RD$ {Total:N2}";
     }
+
 }

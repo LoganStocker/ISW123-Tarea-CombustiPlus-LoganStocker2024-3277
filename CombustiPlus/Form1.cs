@@ -87,6 +87,24 @@ namespace CombustiPlus
             return total;
         }
 
+        private void ActualizarResumen()
+        {
+            decimal vendido = 0;
+            decimal galones = 0;
+            Despacho mayor = despachos[0];
+
+            foreach (Despacho d in despachos)
+            {
+                vendido += d.Total;
+                galones += d.Galones;
+                if (d.Total > mayor.Total) mayor = d;
+            }
+
+            lblResumen.Text = $"{despachos.Count} despachos - Vendido RD$ {vendido:N2} - Galones {galones:0.0} - Mayor: #{mayor.Numero:00} {mayor.Placa} (RD$ {mayor.Total:N2})";
+        }
+
+        public List<Despacho> despachos = new List<Despacho>();
+
         private void btnCotizar_Click_1(object sender, EventArgs e)
         {
             if (!DatosValidos()) return;
@@ -97,6 +115,19 @@ namespace CombustiPlus
         private void btnDespachar_Click_1(object sender, EventArgs e)
         {
             if (!DatosValidos()) return;
+
+            Despacho d = new Despacho();
+            d.Numero = despachos.Count + 1;
+            d.Placa = txtPlaca.Text;
+            d.Combustible = cmbCombustible.Text;
+            d.Galones = nudGalones.Value;
+            d.Pago = cmbPago.Text;
+            d.Total = CalcularTotal();
+            despachos.Add(d);
+
+            lstDespachos.Items.Add(d);
+            ActualizarResumen();
+
         }
         
     }
