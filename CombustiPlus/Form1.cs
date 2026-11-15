@@ -54,14 +54,50 @@ namespace CombustiPlus
             return true;
         }
 
+        public decimal PrecioPorGalon(string combustible) => combustible switch
+        {
+            "Premium" => 290m,
+            "Regular" => 272m,
+            "Gasoil" => 225m,
+            _ => 0m
+        };
+
+        public decimal CalcularTotal()
+        {
+            decimal galones = nudGalones.Value;
+            decimal precio = PrecioPorGalon(cmbCombustible.Text);
+            decimal total = galones * precio;
+
+            lstDetalle.Items.Clear();
+            lstDetalle.Items.Add($"{galones:0.0} galxRD$ {precio:N2} = RD$ {total:N2}");
+
+            if (galones >= 20)
+            {
+                total = total * 0.98m;
+                lstDetalle.Items.Add($"Descuento 20+galones -2%: RD$ {total:N2}");
+            }
+
+            if (cmbPago.Text == "Tarjeta")
+            {
+                total = total * 1.03m;
+                lstDetalle.Items.Add($"Tarjeta+3%: RD$ {total:N2}");
+            }
+
+            lstDetalle.Items.Add($"TOTAL: RD$ {total:N2}");
+            return total;
+        }
+
         private void btnCotizar_Click_1(object sender, EventArgs e)
         {
             if (!DatosValidos()) return;
+            CalcularTotal();
+
         }
 
         private void btnDespachar_Click_1(object sender, EventArgs e)
         {
             if (!DatosValidos()) return;
         }
+        
     }
 }
