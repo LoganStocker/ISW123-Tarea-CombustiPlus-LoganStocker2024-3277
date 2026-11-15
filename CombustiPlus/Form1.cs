@@ -39,5 +39,29 @@ namespace CombustiPlus
         {
 
         }
+        private bool DatosValidos()
+        {
+            if (txtPlaca.Text.Length != 7)
+            {
+                MessageBox.Show("La placa debe tener 7 caracteres para psar.\nUn Ejemplo: ZX12345", "Placa inválida esta mal", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (nudGalones.Value <= 0)
+            {
+                MessageBox.Show("Los galones deben ser más de 0.", "Galones inválidos esta mal", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
+
+        private void btnCotizar_Click_1(object sender, EventArgs e)
+        {
+            if (!DatosValidos()) return;
+        }
+
+        private void btnDespachar_Click_1(object sender, EventArgs e)
+        {
+            if (!DatosValidos()) return;
+        }
     }
 }

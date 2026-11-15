@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            lstDespachos = new ListBox();
             txtPlaca = new TextBox();
             cmbPago = new ComboBox();
             nudGalones = new NumericUpDown();
@@ -37,14 +38,13 @@
             btnCotizar = new Button();
             groupBox2 = new GroupBox();
             lstDetalle = new ListBox();
-            lstDespachos = new ListBox();
             btnPorCombustible = new Button();
             lblResumen = new Label();
             groupBox3 = new GroupBox();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
             label5 = new Label();
+            label4 = new Label();
+            label3 = new Label();
+            label2 = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudGalones).BeginInit();
             groupBox2.SuspendLayout();
@@ -61,6 +61,15 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Despachos del día";
             groupBox1.Enter += groupBox1_Enter;
+            // 
+            // lstDespachos
+            // 
+            lstDespachos.Font = new Font("Consolas", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lstDespachos.FormattingEnabled = true;
+            lstDespachos.Location = new Point(15, 28);
+            lstDespachos.Name = "lstDespachos";
+            lstDespachos.Size = new Size(455, 164);
+            lstDespachos.TabIndex = 1;
             // 
             // txtPlaca
             // 
@@ -105,6 +114,7 @@
             btnDespachar.TabIndex = 4;
             btnDespachar.Text = "Despachar";
             btnDespachar.UseVisualStyleBackColor = true;
+            btnDespachar.Click += btnDespachar_Click_1;
             // 
             // btnCotizar
             // 
@@ -114,6 +124,7 @@
             btnCotizar.TabIndex = 5;
             btnCotizar.Text = "Cotizar";
             btnCotizar.UseVisualStyleBackColor = true;
+            btnCotizar.Click += btnCotizar_Click_1;
             // 
             // groupBox2
             // 
@@ -134,15 +145,6 @@
             lstDetalle.Size = new Size(309, 104);
             lstDetalle.TabIndex = 0;
             lstDetalle.SelectedIndexChanged += listBox1_SelectedIndexChanged;
-            // 
-            // lstDespachos
-            // 
-            lstDespachos.Font = new Font("Consolas", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lstDespachos.FormattingEnabled = true;
-            lstDespachos.Location = new Point(15, 28);
-            lstDespachos.Name = "lstDespachos";
-            lstDespachos.Size = new Size(455, 164);
-            lstDespachos.TabIndex = 1;
             // 
             // btnPorCombustible
             // 
@@ -183,23 +185,14 @@
             groupBox3.Text = "Nuevo Despacho";
             groupBox3.Enter += groupBox3_Enter;
             // 
-            // label2
+            // label5
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(6, 64);
-            label2.Name = "label2";
-            label2.Size = new Size(47, 20);
-            label2.TabIndex = 9;
-            label2.Text = "Placa:";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(6, 108);
-            label3.Name = "label3";
-            label3.Size = new Size(96, 20);
-            label3.TabIndex = 10;
-            label3.Text = "Combustible:";
+            label5.AutoSize = true;
+            label5.Location = new Point(6, 185);
+            label5.Name = "label5";
+            label5.Size = new Size(45, 20);
+            label5.TabIndex = 12;
+            label5.Text = "Pago:";
             // 
             // label4
             // 
@@ -210,14 +203,23 @@
             label4.TabIndex = 11;
             label4.Text = "Galones:";
             // 
-            // label5
+            // label3
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(6, 185);
-            label5.Name = "label5";
-            label5.Size = new Size(45, 20);
-            label5.TabIndex = 12;
-            label5.Text = "Pago:";
+            label3.AutoSize = true;
+            label3.Location = new Point(6, 108);
+            label3.Name = "label3";
+            label3.Size = new Size(96, 20);
+            label3.TabIndex = 10;
+            label3.Text = "Combustible:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(6, 64);
+            label2.Name = "label2";
+            label2.Size = new Size(47, 20);
+            label2.TabIndex = 9;
+            label2.Text = "Placa:";
             // 
             // Form1
             // 
