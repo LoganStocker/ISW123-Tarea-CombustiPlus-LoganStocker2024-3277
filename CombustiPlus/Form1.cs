@@ -62,28 +62,28 @@ namespace CombustiPlus
             _ => 0m
         };
 
-        public decimal CalcularTotal()
+        private decimal CalcularTotal()
         {
             decimal galones = nudGalones.Value;
             decimal precio = PrecioPorGalon(cmbCombustible.Text);
             decimal total = galones * precio;
 
             lstDetalle.Items.Clear();
-            lstDetalle.Items.Add($"{galones:0.0} galxRD$ {precio:N2} = RD$ {total:N2}");
+            lstDetalle.Items.Add($"{galones:0.0} gal × RD$ {precio:N2} = RD$ {total:N2}");
 
             if (galones >= 20)
             {
                 total = total * 0.98m;
-                lstDetalle.Items.Add($"Descuento 20+galones -2%: RD$ {total:N2}");
+                lstDetalle.Items.Add($"Descuento 20+ galones -2 %: RD$ {total:N2}");
             }
 
             if (cmbPago.Text == "Tarjeta")
             {
                 total = total * 1.03m;
-                lstDetalle.Items.Add($"Tarjeta+3%: RD$ {total:N2}");
+                lstDetalle.Items.Add($"Tarjeta +3 %: RD$ {total:N2}");
             }
 
-            lstDetalle.Items.Add($"{galones:0.0} gal × RD$ {precio:N2} = RD$ {total:N2}");
+            lstDetalle.Items.Add($"TOTAL: RD$ {total:N2}");
             return total;
         }
 
@@ -148,6 +148,11 @@ namespace CombustiPlus
 
             lstDetalle.Items.Clear();
             lstDetalle.Items.Add(linea.TrimEnd(' ', '·'));
+        }
+
+        private void lstDespachos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

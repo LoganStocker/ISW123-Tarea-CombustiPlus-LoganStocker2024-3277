@@ -56,7 +56,7 @@
             groupBox1.Controls.Add(lstDespachos);
             groupBox1.Location = new Point(312, 32);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(476, 205);
+            groupBox1.Size = new Size(846, 205);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Despachos del día";
@@ -68,8 +68,9 @@
             lstDespachos.FormattingEnabled = true;
             lstDespachos.Location = new Point(15, 28);
             lstDespachos.Name = "lstDespachos";
-            lstDespachos.Size = new Size(455, 164);
+            lstDespachos.Size = new Size(831, 224);
             lstDespachos.TabIndex = 1;
+            lstDespachos.SelectedIndexChanged += lstDespachos_SelectedIndexChanged;
             // 
             // txtPlaca
             // 
@@ -131,7 +132,7 @@
             groupBox2.Controls.Add(lstDetalle);
             groupBox2.Location = new Point(22, 313);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(321, 125);
+            groupBox2.Size = new Size(557, 290);
             groupBox2.TabIndex = 6;
             groupBox2.TabStop = false;
             groupBox2.Text = "Detalle";
@@ -140,15 +141,15 @@
             // 
             lstDetalle.Font = new Font("Consolas", 10.2F);
             lstDetalle.FormattingEnabled = true;
-            lstDetalle.Location = new Point(6, 21);
+            lstDetalle.Location = new Point(6, 26);
             lstDetalle.Name = "lstDetalle";
-            lstDetalle.Size = new Size(309, 104);
+            lstDetalle.Size = new Size(545, 224);
             lstDetalle.TabIndex = 0;
             lstDetalle.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
             // btnPorCombustible
             // 
-            btnPorCombustible.Location = new Point(347, 255);
+            btnPorCombustible.Location = new Point(600, 284);
             btnPorCombustible.Name = "btnPorCombustible";
             btnPorCombustible.Size = new Size(245, 29);
             btnPorCombustible.TabIndex = 7;
@@ -159,7 +160,7 @@
             // lblResumen
             // 
             lblResumen.AutoSize = true;
-            lblResumen.Location = new Point(359, 298);
+            lblResumen.Location = new Point(600, 316);
             lblResumen.Name = "lblResumen";
             lblResumen.Size = new Size(12, 20);
             lblResumen.TabIndex = 8;
@@ -226,7 +227,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1170, 677);
             Controls.Add(groupBox3);
             Controls.Add(lblResumen);
             Controls.Add(btnPorCombustible);
