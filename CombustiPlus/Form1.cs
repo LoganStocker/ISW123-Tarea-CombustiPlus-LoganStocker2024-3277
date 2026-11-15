@@ -8,9 +8,6 @@ namespace CombustiPlus
 
             cmbCombustible.Items.AddRange(new object[] { "Premium", "Regular", "Gasoil" });
             cmbPago.Items.AddRange(new object[] { "Efectivo", "Tarjeta" });
-
-            cmbCombustible.SelectedIndex = 0;
-            cmbPago.SelectedIndex = 0;
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
